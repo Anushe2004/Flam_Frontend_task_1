@@ -15,20 +15,41 @@
 
   * *Other Users*: Clients receive the drawing event and render the stroke on their canvas.
 
-*Data Flow Diagram*
 
-User A Browser
-   │
-   │ mouse events → canvas.js
-   │
-socket.emit('drawing', strokeData)
-   │
-   ▼
-Server (Node.js + Socket.IO)
-   ├── Stores drawingHistory
-   └── Broadcasts drawing event to all clients
-   │
-   ▼
-Other Users' Browsers
-   │
-   └─ canvas.js receives strokeData → renders on canvas
+ ## Data Flow Diagram
+
+```bash
+      ┌─────────────────┐
+      │   User A        │
+      │   Browser       │
+      └─────────────────┘
+               │
+               │  Mouse events captured by canvas.js
+               ▼
+      ┌─────────────────┐
+      │ canvas.js        │
+      │  (Frontend)      │
+      └─────────────────┘
+               │
+               │  socket.emit('drawing', strokeData)
+               ▼
+      ┌─────────────────────────────┐
+      │      Server                 │
+      │  Node.js + Socket.IO        │
+      │  - Stores drawingHistory    │
+      │  - Broadcasts strokeData    │
+      └─────────────────────────────┘
+               │
+               │  Broadcast to all connected clients
+               ▼
+      ┌─────────────────┐        ┌─────────────────┐
+      │ Other User B    │        │ Other User C    │
+      │ Browser         │        │ Browser         │
+      └─────────────────┘        └─────────────────┘
+               │                        │
+               │ canvas.js receives     │ canvas.js receives
+               │ strokeData             │ strokeData
+               ▼                        ▼
+           Draws stroke on canvas     Draws stroke on canvas
+```
+
