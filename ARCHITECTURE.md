@@ -1,6 +1,7 @@
 ## Real-Time Collaborative Canvas – Architecture Documentation
 
 1️⃣ **Overview**
+
   This project implements a real-time collaborative canvas using Node.js, Express, Socket.IO, and HTML5 Canvas. Multiple users can draw together, see each other’s cursors, and perform undo/redo actions.
 
 2️⃣ **Data Flow Diagram**
