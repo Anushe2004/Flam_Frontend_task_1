@@ -16,7 +16,7 @@ A real-time collaborative drawing application built with **Node.js**, **Express*
 ---
 
 ## Folder Structure
-
+```bash
 collaborative-canvas/
   ├── Server/
   │ └── server.js # Node.js + Socket.IO backend
@@ -26,3 +26,4 @@ collaborative-canvas/
   │ ├── style.css # Styling
   │ └── websocket.js # Socket.IO client connection
   └── package.json # Node.js dependencies
+```
