@@ -105,7 +105,7 @@ node server.js
    * All actions will sync in real-time across devices.
 
 
-**Limitations / Known Bugs**
+## Limitations / Known Bugs
 
 While this real-time collaborative canvas works well for small-scale testing, there are a few limitations and known issues:
 
